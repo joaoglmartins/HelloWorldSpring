@@ -8,7 +8,7 @@ public class HelloWorldService {
 	public HelloWorldService() {}
 	
 	public String sayHelloWorld(String message) {
-		return "Hello " + (message != "" ? message : "World!");
+		return "Hello " + message + "!";
 	}
 	
 }

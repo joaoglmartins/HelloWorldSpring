@@ -17,7 +17,7 @@ public class HelloWorldController {
     }
 
 	@GetMapping
-	public String sayHelloParam(@RequestParam(required = false) String q) {
+	public String get(@RequestParam(defaultValue = "World") String q) {
 		return service.sayHelloWorld(q);
 	}
 
