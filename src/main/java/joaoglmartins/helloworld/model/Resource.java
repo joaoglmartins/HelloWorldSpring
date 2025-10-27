@@ -19,6 +19,8 @@ public class Resource {
 
     @Column(nullable = false, length = 30)
     private String name;
+    
+    public Resource() {};
 
     public Resource(String name) {
         this.name = name;
