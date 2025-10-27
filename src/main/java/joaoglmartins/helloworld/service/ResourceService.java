@@ -12,21 +12,25 @@ import joaoglmartins.helloworld.repository.ResourceRepository;
 @Service
 public class ResourceService {
 	
-	private final ResourceRepository resourceRepository;
+	private final ResourceRepository repository;
 	
-	public ResourceService(ResourceRepository resourceRepository) {
-		this.resourceRepository = resourceRepository;
+	public ResourceService(ResourceRepository repository) {
+		this.repository = repository;
 	}
 	
 	public List<Resource> findAll() {
-		return resourceRepository.findAll();
+		return repository.findAll();
 	}
 	
 	public Resource findById(String id) {
 		try {
-			return resourceRepository.findById(UUID.fromString(id)).get();			
+			return repository.findById(UUID.fromString(id)).get();			
 		} catch (NoSuchElementException e) {
 			return null;
 		}
+	}
+	
+	public Resource create(Resource resource) {
+		return repository.save(resource);
 	}
 }

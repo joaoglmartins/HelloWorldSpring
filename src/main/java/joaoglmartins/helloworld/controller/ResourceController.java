@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,5 +32,10 @@ public class ResourceController {
     	if (resource == null) return Collections.emptyList();
     	
     	return Collections.singletonList(resource);
+    }
+    
+    @PostMapping
+    public Resource post(@RequestBody Resource resource) {
+        return service.create(resource);
     }
 }
