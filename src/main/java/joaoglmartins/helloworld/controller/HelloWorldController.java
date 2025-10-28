@@ -1,14 +1,12 @@
 package joaoglmartins.helloworld.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import joaoglmartins.helloworld.service.HelloWorldService;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class HelloWorldController {
 	private final HelloWorldService service;
 	
@@ -16,9 +14,16 @@ public class HelloWorldController {
         this.service = service;
     }
 
-	@GetMapping
-	public String get(@RequestParam(defaultValue = "World") String q) {
-		return service.sayHelloWorld(q);
+//	@GetMapping
+//	public String get(@RequestParam(defaultValue = "World") String q) {
+//		return service.sayHelloWorld(q);
+//	}
+	
+	@GetMapping("/index")
+	public String get(Model model) {
+		return "index";
 	}
+	
+	
 
 }

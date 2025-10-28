@@ -11,4 +11,8 @@ public class HelloWorldService {
 		return "Hello " + message + "!";
 	}
 	
+	public String helloWorldPage() {
+		return "index";
+	}
+	
 }
